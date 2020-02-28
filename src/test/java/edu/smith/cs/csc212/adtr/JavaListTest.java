@@ -87,6 +87,20 @@ public class JavaListTest {
 		Assert.assertEquals(false, data.isEmpty());
 	}
 	
+	@Test
+	public void testSetIndex() {
+		ListADT<String> data = makeFullList();
+		data.setIndex(0, "test");
+		assertEquals(data.size(),4);
+		assertEquals(data.getIndex(0),"test");
+	}
+	
+	@Test (expected=BadIndexError.class)
+	public void testSetWrongIndex() {
+		ListADT<String> data = makeFullList();
+		data.setIndex(4, "test");
+	}
+	
 	// TODO: test list addToBack.
 	// TODO: test list remove
 	// TODO test addIndex methods.
